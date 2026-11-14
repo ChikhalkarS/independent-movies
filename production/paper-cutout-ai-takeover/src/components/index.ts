@@ -1,0 +1,17 @@
+export { Cloud } from './Cloud';
+export { Bird } from './Bird';
+export { Sun } from './Sun';
+export { Sky } from './Sky';
+export { Frame } from './Frame';
+export { Grain } from './Grain';
+export { Paper } from './Paper';
+export { PaperPerson } from './PaperPerson';
+export { PuppetStrings } from './PuppetStrings';
+export { Robot } from './Robot';
+export { Scissors } from './Scissors';
+export { Strings } from './Strings';
+export { TempleBoat } from './TempleBoat';
+export { Town } from './Town';
+export { Desk } from './Desk';
+export { Eagle } from './Eagle';
+export { Captions } from './Captions';

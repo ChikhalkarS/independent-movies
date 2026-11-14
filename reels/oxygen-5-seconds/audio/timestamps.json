@@ -1,0 +1,277 @@
+[
+  {
+    "word": "What",
+    "start": 0.0,
+    "end": 0.52
+  },
+  {
+    "word": "if",
+    "start": 0.52,
+    "end": 0.68
+  },
+  {
+    "word": "Earth",
+    "start": 0.68,
+    "end": 0.9
+  },
+  {
+    "word": "lost",
+    "start": 0.9,
+    "end": 1.3
+  },
+  {
+    "word": "oxygen",
+    "start": 1.3,
+    "end": 1.76
+  },
+  {
+    "word": "for",
+    "start": 1.76,
+    "end": 2.04
+  },
+  {
+    "word": "just",
+    "start": 2.04,
+    "end": 2.2
+  },
+  {
+    "word": "five",
+    "start": 2.2,
+    "end": 2.6
+  },
+  {
+    "word": "seconds?",
+    "start": 2.6,
+    "end": 3.16
+  },
+  {
+    "word": "Holding",
+    "start": 4.04,
+    "end": 4.46
+  },
+  {
+    "word": "your",
+    "start": 4.46,
+    "end": 4.68
+  },
+  {
+    "word": "breath",
+    "start": 4.68,
+    "end": 5.0
+  },
+  {
+    "word": "would",
+    "start": 5.0,
+    "end": 5.2
+  },
+  {
+    "word": "not",
+    "start": 5.2,
+    "end": 5.36
+  },
+  {
+    "word": "save",
+    "start": 5.36,
+    "end": 5.7
+  },
+  {
+    "word": "you.",
+    "start": 5.7,
+    "end": 5.98
+  },
+  {
+    "word": "The",
+    "start": 6.9,
+    "end": 7.06
+  },
+  {
+    "word": "daytime",
+    "start": 7.06,
+    "end": 7.34
+  },
+  {
+    "word": "sky",
+    "start": 7.34,
+    "end": 7.82
+  },
+  {
+    "word": "would",
+    "start": 7.82,
+    "end": 8.1
+  },
+  {
+    "word": "instantly",
+    "start": 8.1,
+    "end": 8.48
+  },
+  {
+    "word": "turn",
+    "start": 8.48,
+    "end": 8.86
+  },
+  {
+    "word": "black.",
+    "start": 8.86,
+    "end": 9.2
+  },
+  {
+    "word": "No",
+    "start": 10.26,
+    "end": 10.48
+  },
+  {
+    "word": "oxygen",
+    "start": 10.48,
+    "end": 11.0
+  },
+  {
+    "word": "means",
+    "start": 11.0,
+    "end": 11.28
+  },
+  {
+    "word": "nothing",
+    "start": 11.28,
+    "end": 11.72
+  },
+  {
+    "word": "to",
+    "start": 11.72,
+    "end": 11.94
+  },
+  {
+    "word": "scatter",
+    "start": 11.94,
+    "end": 12.34
+  },
+  {
+    "word": "sunlight",
+    "start": 12.34,
+    "end": 12.76
+  },
+  {
+    "word": "blue.",
+    "start": 12.76,
+    "end": 13.22
+  },
+  {
+    "word": "Every",
+    "start": 14.22,
+    "end": 14.6
+  },
+  {
+    "word": "beach",
+    "start": 14.6,
+    "end": 14.9
+  },
+  {
+    "word": "-goer",
+    "start": 14.9,
+    "end": 15.22
+  },
+  {
+    "word": "would",
+    "start": 15.22,
+    "end": 15.38
+  },
+  {
+    "word": "get",
+    "start": 15.38,
+    "end": 15.54
+  },
+  {
+    "word": "an",
+    "start": 15.54,
+    "end": 15.72
+  },
+  {
+    "word": "instant",
+    "start": 15.72,
+    "end": 16.18
+  },
+  {
+    "word": "sunburn.",
+    "start": 16.18,
+    "end": 16.8
+  },
+  {
+    "word": "Every",
+    "start": 17.78,
+    "end": 18.22
+  },
+  {
+    "word": "concrete",
+    "start": 18.22,
+    "end": 18.7
+  },
+  {
+    "word": "building",
+    "start": 18.7,
+    "end": 19.18
+  },
+  {
+    "word": "would",
+    "start": 19.18,
+    "end": 19.5
+  },
+  {
+    "word": "crumble",
+    "start": 19.5,
+    "end": 19.86
+  },
+  {
+    "word": "to",
+    "start": 19.86,
+    "end": 20.1
+  },
+  {
+    "word": "dust.",
+    "start": 20.1,
+    "end": 20.36
+  },
+  {
+    "word": "Oxygen",
+    "start": 20.36,
+    "end": 21.94
+  },
+  {
+    "word": "returns,",
+    "start": 21.94,
+    "end": 22.44
+  },
+  {
+    "word": "the",
+    "start": 22.88,
+    "end": 22.98
+  },
+  {
+    "word": "counter",
+    "start": 22.98,
+    "end": 23.3
+  },
+  {
+    "word": "resets,",
+    "start": 23.3,
+    "end": 23.8
+  },
+  {
+    "word": "the",
+    "start": 24.36,
+    "end": 24.44
+  },
+  {
+    "word": "loop",
+    "start": 24.44,
+    "end": 24.64
+  },
+  {
+    "word": "begins",
+    "start": 24.64,
+    "end": 25.02
+  },
+  {
+    "word": "again.",
+    "start": 25.02,
+    "end": 25.5
+  }
+]

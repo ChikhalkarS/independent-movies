@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<!-- Bang Motion v2: Seamless looping vertical Short — "What if AI takes over" -->
+<!-- Benchmarks: CoComelon (bright, simple), @toonstories (cute, looping), Easy Actually (2D vector, 2-3s shifts) -->
+<!-- Palette: bright paper — sky #87CEEB, grass #7CCD7C, sun #FFD700, coral #FF6B6B, teal #4ECDC4, white #FFFFFF, ink #2C3E50 -->
+<head>
+<meta charset="utf-8">
+<title>AI Takeover Loop — Vertical Short</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky:#87CEEB; --grass:#7CCD7C; --sun:#FFD700; --coral:#FF6B6B; --teal:#4ECDC4; --white:#FFFFFF; --ink:#2C3E50;
+  --paper:#F5F5F0; --shadow:rgba(44,62,80,.25);
+}
+html,body{margin:0;height:100%;background:#0a0a0a;overflow:hidden}
+#stage{position:absolute;left:50%;top:50%;width:1080px;height:1920px;overflow:hidden;background:var(--sky);font-family:"Quicksand",system-ui,sans-serif;color:var(--ink)}
+#world{position:absolute;inset:0;transform-origin:0 0;will-change:transform}
+#filters{position:fixed;width:0;height:0;opacity:0;pointer-events:none}
+.t{position:absolute;opacity:0}
+.w{display:inline-block;white-space:nowrap;margin:0 .1em;opacity:0;will-change:transform,opacity}
+.paper{position:absolute;inset:-1000px;background:var(--paper)}
+.grain{position:absolute;inset:-1000px;opacity:.15;mix-blend-mode:multiply;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .28 0 0 0 0 .2 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")}
+.cut{position:absolute;opacity:0;will-change:transform,filter;filter:drop-shadow(0 20px 30px var(--shadow))}
+.cut img{display:block;width:100%}
+.ph{display:grid;place-items:center;width:100%;height:100%;border-radius:24px;background:#e8e8e0;color:#888;font-family:"Fredoka",cursive;font-size:36px;text-align:center}
+.line{position:absolute;left:60px;right:60px;font-weight:700;font-size:68px;line-height:1.1;letter-spacing:-.01em;color:var(--ink);opacity:0}
+.hl{position:relative;display:inline-block;padding:.02em .12em;border-radius:.15em;color:#fff}
+.hl i{position:absolute;inset:0;border-radius:inherit;transform:scaleX(0);transform-origin:0 50%;z-index:-1;background:var(--coral)}
+.daybadge{position:absolute;font-weight:800;font-size:120px;color:rgba(44,62,80,.12);white-space:nowrap;opacity:0;pointer-events:none}
+#dbg{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);display:none;gap:12px;align-items:center;padding:10px 16px;border-radius:14px;background:rgba(14,16,22,.9);color:#cfd5e3;font:13px system-ui;z-index:50}
+#dbg input{width:360px}#dbg span{font-variant-numeric:tabular-nums;min-width:6ch}
+</style>
+</head>
+<body>
+<svg id="filters"><defs></defs></svg>
+<div id="stage">
+  <div id="world">
+    <div class="paper"></div><div class="grain"></div>
+
+    <!-- DAY BADGE (persistent throughline, loops) -->
+    <div class="daybadge" id="daybadge">DAY 1</div>
+
+    <!-- SCENE 1: Doorstep gift (0-3.3s) — centered, cute -->
+    <div class="cut" id="scene1" style="left:260px;top:300px;width:560px;height:560px">
+      <svg viewBox="0 0 560 560" width="560" height="560">
+        <!-- Sky gradient -->
+        <defs>
+          <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#87CEEB"/>
+            <stop offset="100%" stop-color="#E0F7FA"/>
+          </linearGradient>
+          <filter id="drop" x="-50%" y="-50%" width="200%" height="200%">
+            <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#2C3E50" flood-opacity="0.2"/>
+          </filter>
+        </defs>
+        <!-- Ground -->
+        <rect x="0" y="420" width="560" height="140" fill="#7CCD7C" filter="url(#drop)"/>
+        <rect x="0" y="420" width="560" height="8" fill="#6BCB77"/>
+        <!-- Door frame -->
+        <rect x="140" y="160" width="280" height="360" rx="20" fill="#D4A574" filter="url(#drop)"/>
+        <!-- Door panels -->
+        <rect x="160" y="180" width="240" height="160" rx="12" fill="#F4E4BC"/>
+        <rect x="160" y="360" width="240" height="140" rx="12" fill="#F4E4BC"/>
+        <!-- Gift box (cute, paper style) -->
+        <g transform="translate(180 320)" filter="url(#drop)">
+          <rect x="0" y="0" width="200" height="150" rx="8" fill="#FFFFFF" stroke="#2C3E50" stroke-width="3"/>
+          <!-- Lid -->
+          <rect x="-10" y="-25" width="220" height="30" rx="6" fill="#FF6B6B"/>
+          <rect x="90" y="-25" width="20" height="175" fill="#FF6B6B"/>
+          <!-- Bow -->
+          <ellipse cx="100" cy="-35" rx="35" ry="18" fill="#FF6B6B"/>
+          <ellipse cx="100" cy="-35" rx="20" ry="10" fill="#FF5252"/>
+        </g>
+        <!-- Cute sparkles -->
+        <circle cx="120" cy="200" r="6" fill="#FFD700" opacity="0.9" id="spark1"/>
+        <circle cx="440" cy="180" r="4" fill="#FFD700" opacity="0.7" id="spark2"/>
+        <circle cx="100" cy="300" r="5" fill="#4ECDC4" opacity="0.8" id="spark3"/>
+      </svg>
+    </div>
+
+    <!-- SCENE 2: Robot helper (3.3-6.6s) — right side of world -->
+    <div class="cut" id="scene2" style="left:2600px;top:320px;width:560px;height:560px">
+      <svg viewBox="0 0 560 560" width="560" height="560">
+        <defs>
+          <filter id="drop2" x="-50%" y="-50%" width="200%" height="200%">
+            <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#2C3E50" flood-opacity="0.2"/>
+          </filter>
+          <linearGradient id="robotBody" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#4ECDC4"/>
+            <stop offset="100%" stop-color="#3ABDB8"/>
+          </linearGradient>
+        </defs>
+        <!-- Ground -->
+        <rect x="0" y="440" width="560" height="120" fill="#7CCD7C" filter="url(#drop2)"/>
+        <!-- Robot (friendly, paper cutout) -->
+        <g transform="translate(280 200)" filter="url(#drop2)">
+          <!-- Feet -->
+          <rect x="-70" y="160" width="50" height="30" rx="8" fill="#3ABDB8"/>
+          <rect x="20" y="160" width="50" height="30" rx="8" fill="#3ABDB8"/>
+          <!-- Legs -->
+          <rect x="-55" y="100" width="20" height="60" rx="6" fill="#4ECDC4"/>
+          <rect x="35" y="100" width="20" height="60" rx="6" fill="#4ECDC4"/>
+          <!-- Body -->
+          <rect x="-80" y="-20" width="160" height="120" rx="16" fill="url(#robotBody)"/>
+          <!-- Belly screen -->
+          <rect x="-40" y="20" width="80" height="60" rx="8" fill="#1A3A3A"/>
+          <text x="0" y="58" text-anchor="middle" font-family="Fredoka" font-size="28" fill="#4ECDC4">❤</text>
+          <!-- Arms (one waving) -->
+          <g id="waveArm">
+            <rect x="85" y="0" width="25" height="80" rx="8" fill="#4ECDC4" transform="rotate(-20 97 0)"/>
+          </g>
+          <rect x="-110" y="0" width="25" height="80" rx="8" fill="#4ECDC4" transform="rotate(15 -97 0)"/>
+          <!-- Head -->
+          <rect x="-60" y="-100" width="120" height="80" rx="20" fill="url(#robotBody)"/>
+          <!-- Antenna -->
+          <rect x="-3" y="-125" width="6" height="25" rx="3" fill="#FFD700"/>
+          <circle cx="0" cy="-130" r="8" fill="#FFD700"/>
+          <!-- Eyes (cute) -->
+          <circle cx="-25" cy="-75" r="14" fill="#FFFFFF"/>
+          <circle cx="-25" cy="-75" r="7" fill="#2C3E50"/>
+          <circle cx="25" cy="-75" r="14" fill="#FFFFFF"/>
+          <circle cx="25" cy="-75" r="7" fill="#2C3E50"/>
+          <!-- Cheeks -->
+          <circle cx="-35" cy="-55" r="10" fill="#FF6B6B" opacity="0.5"/>
+          <circle cx="35" cy="-55" r="10" fill="#FF6B6B" opacity="0.5"/>
+        </g>
+        <!-- Floating hearts -->
+        <text x="120" y="150" font-size="40">💛</text>
+        <text x="420" y="180" font-size="32">💚</text>
+        <text x="80" y="300" font-size="36">💙</text>
+      </svg>
+    </div>
+
+    <!-- SCENE 3: Calendar planning (6.6-10s) — far right, loops to scene 1 -->
+    <div class="cut" id="scene3" style="left:5200px;top:280px;width:700px;height:620px">
+      <svg viewBox="0 0 700 620" width="700" height="620">
+        <defs>
+          <filter id="drop3" x="-50%" y="-50%" width="200%" height="200%">
+            <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#2C3E50" flood-opacity="0.2"/>
+          </filter>
+          <linearGradient id="calGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#FFFFFF"/>
+            <stop offset="100%" stop-color="#F0F0F0"/>
+          </linearGradient>
+        </defs>
+        <!-- Desk -->
+        <rect x="50" y="480" width="600" height="100" rx="12" fill="#D4A574" filter="url(#drop3)"/>
+        <rect x="50" y="460" width="600" height="20" fill="#C49564"/>
+        <!-- Paper character at desk (cute) -->
+        <g transform="translate(180 220)" filter="url(#drop3)">
+          <!-- Head -->
+          <circle cx="170" cy="0" r="50" fill="#FFDAB9"/>
+          <!-- Ears -->
+          <circle cx="115" cy="-20" r="18" fill="#FFDAB9"/>
+          <circle cx="225" cy="-20" r="18" fill="#FFDAB9"/>
+          <!-- Face -->
+          <circle cx="155" cy="-10" r="8" fill="#2C3E50"/>
+          <circle cx="185" cy="-10" r="8" fill="#2C3E50"/>
+          <ellipse cx="170" cy="20" rx="12" ry="6" fill="#FF6B6B"/>
+          <!-- Body -->
+          <rect x="110" y="40" width="120" height="140" rx="20" fill="#FF6B6B"/>
+          <!-- Arms on desk -->
+          <rect x="60" y="80" width="40" height="80" rx="10" fill="#FFDAB9" transform="rotate(-15 80 80)"/>
+          <rect x="200" y="80" width="40" height="80" rx="10" fill="#FFDAB9" transform="rotate(15 220 80)"/>
+          <!-- Phone in hand -->
+          <rect x="230" y="100" width="40" height="70" rx="8" fill="#2C3E50"/>
+          <rect x="235" y="105" width="30" height="60" rx="4" fill="#87CEEB"/>
+        </g>
+        <!-- Calendar (large, central) -->
+        <g transform="translate(420 80)" filter="url(#drop3)">
+          <rect x="0" y="0" width="220" height="280" rx="12" fill="url(#calGrad)" stroke="#E0E0E0" stroke-width="2"/>
+          <!-- Header -->
+          <rect x="0" y="0" width="220" height="50" rx="12" fill="#4ECDC4"/>
+          <text x="110" y="34" text-anchor="middle" font-family="Fredoka" font-size="28" fill="#FFFFFF">DAY 50</text>
+          <!-- Grid -->
+          <g stroke="#E8E8E8" stroke-width="1">
+            <line x1="0" y1="90" x2="220" y2="90"/>
+            <line x1="0" y1="140" x2="220" y2="140"/>
+            <line x1="0" y1="190" x2="220" y2="190"/>
+            <line x1="0" y1="240" x2="220" y2="240"/>
+            <line x1="44" y1="50" x2="44" y2="280"/>
+            <line x1="88" y1="50" x2="88" y2="280"/>
+            <line x1="132" y1="50" x2="132" y2="280"/>
+            <line x1="176" y1="50" x2="176" y2="280"/>
+          </g>
+          <!-- Day numbers (faded except today) -->
+          <text x="22" y="110" text-anchor="middle" font-family="Quicksand" font-size="18" fill="#BBB">1</text>
+          <text x="66" y="110" text-anchor="middle" font-family="Quicksand" font-size="18" fill="#BBB">2</text>
+          <text x="110" y="110" text-anchor="middle" font-family="Quicksand" font-size="18" fill="#BBB">3</text>
+          <text x="154" y="110" text-anchor="middle" font-family="Quicksand" font-size="18" fill="#BBB">4</text>
+          <text x="198" y="110" text-anchor="middle" font-family="Quicksand" font-size="18" fill="#BBB">5</text>
+          <!-- ... more days ... -->
+          <text x="110" y="190" text-anchor="middle" font-family="Fredoka" font-size="24" fill="#FF6B6B" font-weight="700">50</text>
+        </g>
+      </svg>
+    </div>
+
+    <!-- Day badges for scenes 2 & 3 (world coords) -->
+    <div class="daybadge" id="daybadge2" style="left:2900px;top:100px">DAY 10</div>
+    <div class="daybadge" id="daybadge3" style="left:5500px;top:100px">DAY 50</div>
+
+    <!-- Text lines (paper strip, high contrast) -->
+    <div class="line t" id="line1" style="left:60px;top:1600px">
+      A gift arrives. It opens itself.
+    </div>
+    <div class="line t" id="line2" style="left:2660px;top:1600px;right:auto;width:1200px">
+      It writes your emails. You say thanks.
+    </div>
+    <div class="line t" id="line3" style="left:5260px;top:1600px;right:auto;width:1200px">
+      It plans your day. You stop planning.
+    </div>
+
+    <!-- Highlight ring for day badge -->
+    <svg class="anno" id="ring1" style="position:absolute;left:20px;top:40px;width:200px;height:200px;overflow:visible" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="90" stroke="#FF6B6B" stroke-width="6" fill="none" stroke-dasharray="565" stroke-dashoffset="565"/>
+    </svg>
+  </div>
+  <div id="dbg"><button id="dPlay">Pause</button><input id="dScrub" type="range" min="0" max="1000" value="0"><span id="dClock">0.00s</span></div>
+</div>
+<audio id="vo" src="" preload="auto"></audio>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const W=1080,H=1920,DUR=10;
+function fit(){const s=Math.min(innerWidth/W,innerHeight/H);$('#stage').style.transform=`translate(-50%,-50%) scale(${s})`;}
+addEventListener('resize',fit);fit();
+
+/* motion blur */
+const defs=$('#filters defs');let fc=0;
+function makeBlur(){const id='mb'+(fc++),NS='http://www.w3.org/2000/svg';const f=document.createElementNS(NS,'filter');f.id=id;
+  f.setAttribute('x','-70%');f.setAttribute('y','-70%');f.setAttribute('width','240%');f.setAttribute('height','240%');
+  const g=document.createElementNS(NS,'feGaussianBlur');g.setAttribute('stdDeviation','0 0');f.appendChild(g);defs.appendChild(f);return {url:`url(#${id})`,node:g};}
+function blurTween(tl,targets,at,from,to,dur,{ease='power3.out',ax=1,ay=.08}={}){const b=makeBlur(),o={v:from};tl.set(targets,{filter:b.url},at);
+  tl.to(o,{v:to,duration:dur,ease,onUpdate(){b.node.setAttribute('stdDeviation',`${(o.v*ax).toFixed(2)} ${(o.v*ay).toFixed(2)}`);}},at);tl.set(targets,{filter:'none'},at+dur);}
+const VERT={ax:.1,ay:1},HORZ={ax:1,ay:.1};
+
+/* split words */
+$$('.line').forEach(el=>{const out=[];el.childNodes.forEach(n=>{if(n.nodeType===3){n.textContent.split(/\s+/).filter(Boolean).forEach(w=>{const s=document.createElement('span');s.className='w';s.textContent=w;out.push(s);});}
+  else{const s=document.createElement('span');s.className='w';s.appendChild(n.cloneNode(true));out.push(s);}});el.textContent='';out.forEach(s=>el.appendChild(s));});
+
+const tl=gsap.timeline({paused:true,repeat:-1}); // SEAMLESS LOOP
+const rig=$('#world');
+const words=el=>$$('.w',el);
+const say=(sel,at,{dur=.55,st=.08,mode='up'}={})=>{const el=$(sel),ws=words(el);tl.set(el,{opacity:1},at);
+  if(mode==='scale')tl.fromTo(ws,{opacity:0,scale:.7,rotate:-3},{opacity:1,scale:1,rotate:0,duration:dur,ease:'back.out(1.6)',stagger:st,immediateRender:false},at);
+  else tl.fromTo(ws,{opacity:0,yPercent:60,scaleY:1.25},{opacity:1,yPercent:0,scaleY:1,duration:dur,ease:'power4.out',stagger:st,immediateRender:false},at);
+  blurTween(tl,el,at,22,0,dur+st*ws.length,VERT);
+  $$('.hl i',el).forEach((h,i)=>tl.fromTo(h,{scaleX:0},{scaleX:1,duration:.4,ease:'power3.out',immediateRender:false},at+st*ws.length+.2+i*.2));};
+const unsay=(sel,at,{dur=.3}={})=>{const el=$(sel),ws=words(el);tl.to(ws,{opacity:0,yPercent:-50,duration:dur,ease:'power2.in',stagger:.02},at);
+  blurTween(tl,el,at,0,30,dur+.1,{ease:'power2.in',...VERT});tl.set(el,{opacity:0},at+dur+.15);};
+const fly=(sel,at,{from={x:0,y:500,rotate:10,scale:.9},dur=.9,ease='power4.out',float=true}={})=>{const el=$(sel);
+  tl.fromTo(el,{opacity:0,...from},{opacity:1,x:0,y:0,rotate:0,scale:1,duration:dur,ease,immediateRender:false},at);
+  blurTween(tl,el,at,34,0,dur*.7,Math.abs(from.x||0)>Math.abs(from.y||0)?HORZ:VERT);
+  if(float)tl.to(el,{y:-25,rotate:1.5,scale:1.03,duration:1.5+((at*7)%1)*.3,ease:'sine.inOut',yoyo:true,repeat:-1},at+dur);};
+const draw=(sel,at,dur=.7)=>{const p=$(sel);tl.set(p,{opacity:0},0);tl.set(p,{opacity:1},at);const o={v:0};
+  tl.to(o,{v:1,duration:dur,ease:'power2.inOut',onUpdate(){p.style.clipPath=`inset(-300px ${(1-o.v)*100}% -300px -300px)`;}},at);};
+
+/* camera */
+const C={x:540,y:960,z:1};
+function applyCam(){rig.style.transform=`translate(${540-C.x*C.z}px,${960-C.y*C.z}px) scale(${C.z})`;}
+const look=(at,x,y,z,dur=1.6,ease='sine.inOut')=>tl.to(C,{x,y,z,duration:dur,ease,onUpdate:applyCam},at);
+const home=(at,x=540,y=960,dur=1.2)=>look(at,x,y,1,dur,'power2.inOut');
+const into=(cutAt,x,y,z)=>tl.to(C,{x,y,z,duration:.9,ease:'power2.in',onUpdate:applyCam},cutAt-.9);
+const settle=(cutAt,x,y,z)=>tl.to(C,{x,y,z:z*.94,duration:1.1,ease:'power3.out',onUpdate:applyCam},cutAt);
+const breath=(a,b,z)=>tl.to(C,{z,duration:b-a,ease:'sine.inOut',onUpdate:applyCam},a);
+
+/* ===== 10-SECOND SEAMLESS LOOP ===== */
+
+// Scene 1: Doorstep (0-3.3s)
+tl.set(C,{x:540,y:800,z:1.6,onUpdate:applyCam},0);
+tl.fromTo('#daybadge',{opacity:0,y:40},{opacity:1,y:0,duration:1,ease:'power2.out'},.2);
+fly('#scene1',.3,{from:{x:0,y:300,rotate:5,scale:.8}});
+// Draw ring around day badge
+tl.to('#ring1 circle',{strokeDashoffset:0,duration:1,ease:'power2.out'},1.2);
+say('#line1',2.0);
+breath(2.5,3.3,1.03);
+unsay('#line1',3.0);tl.to('#ring1 circle',{strokeDashoffset:565,duration:.3},3.0);tl.to('#daybadge',{opacity:0,duration:.2},3.0);
+
+// PUSH-THROUGH to Scene 2 (robot)
+into(3.3,2600,800,1.6);settle(3.3,2760,780,1.7);
+fly('#scene2',3.4,{from:{x:0,y:300,rotate:-5,scale:.9}});
+tl.fromTo('#daybadge2',{opacity:0,y:40},{opacity:1,y:0,duration:1,ease:'power2.out'},3.5);
+say('#line2',4.0);
+breath(4.0,6.6,1.03);
+unsay('#line2',6.3);tl.to('#daybadge2',{opacity:0,duration:.2},6.3);
+
+// PUSH-THROUGH to Scene 3 (calendar)
+into(6.6,5200,800,1.6);settle(6.6,5360,780,1.7);
+fly('#scene3',6.7,{from:{x:0,y:300,rotate:5,scale:.9}});
+tl.fromTo('#daybadge3',{opacity:0,y:40},{opacity:1,y:0,duration:1,ease:'power2.out'},6.8);
+say('#line3',7.3);
+breath(7.3,10,1.03);
+
+// LOOP BACK: hard cut at 10s → scene 1 state (handled by repeat:-1)
+// Ensure last frame matches first: camera at scene 1, daybadge DAY 1 visible
+tl.to(C,{x:540,y:800,z:1.6,duration:0,onUpdate:applyCam},10);
+tl.to('#daybadge',{opacity:1,duration:0},10);
+tl.to('#daybadge2',{opacity:0,duration:0},10);
+tl.to('#daybadge3',{opacity:0,duration:0},10);
+tl.to('#scene1',{opacity:1,duration:0},10);
+tl.to('#scene2',{opacity:0,duration:0},10);
+tl.to('#scene3',{opacity:0,duration:0},10);
+
+tl.to({},{duration:.01},DUR);
+
+/* controls */
+const q=new URLSearchParams(location.search),vo=$('#vo'),hasVO=!!vo.getAttribute('src');let audioOn=false;
+function start(){tl.play(0);if(hasVO){vo.currentTime=0;vo.play().then(()=>audioOn=true).catch(()=>{});}}
+gsap.ticker.add(()=>{if(!audioOn||tl.paused())return;if(Math.abs(vo.currentTime-tl.time())>.12)vo.currentTime=tl.time();});
+window.OPENER={W,H,DURATION:DUR,tl,ready:false,seek(t){tl.pause(t,false);applyCam();if(gsap.ticker.tick)gsap.ticker.tick();},play:start};
+addEventListener('keydown',e=>{if(/^[rR]$/.test(e.key))start();if(e.code==='Space'){e.preventDefault();tl.paused()?tl.play():tl.pause();}});
+if(q.has('debug')){const dbg=$('#dbg');dbg.style.display='flex';const sc=$('#dScrub'),ck=$('#dClock');let drag=false;
+  gsap.ticker.add(()=>{if(!drag)sc.value=String(tl.time()/DUR*1000);ck.textContent=tl.time().toFixed(2)+'s';$('#dPlay').textContent=tl.paused()?'Play':'Pause';});
+  sc.addEventListener('pointerdown',()=>{drag=true;tl.pause();});addEventListener('pointerup',()=>drag=false);
+  sc.addEventListener('input',()=>{tl.pause();tl.time(sc.value/1000*DUR);});$('#dPlay').onclick=()=>tl.paused()?tl.play():tl.pause();}
+document.fonts.ready.then(()=>{applyCam();window.OPENER.ready=true;if(q.has('clean'))return;
+  if(!hasVO){start();return;}
+  vo.play().then(()=>{audioOn=true;vo.currentTime=0;tl.play(0);}).catch(()=>{const go=()=>{removeEventListener('pointerdown',go);removeEventListener('keydown',go);start();};addEventListener('pointerdown',go);addEventListener('keydown',go);});});
+</script>
+</body>
+</html>

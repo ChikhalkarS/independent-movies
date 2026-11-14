@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+
+# Render artifacts (re-creatable from source)
+frames/
+frames-v2/
+out/
+!reels/*/out/.gitkeep
+
+# Large media caches
+*.remotion/
+node_modules/.cache/
+
+# OS
+.DS_Store
+
+# Env
+.env
+
+# Local Claude settings (contains API keys)
+.claude/settings.local.json
+
+# Generated/large files
+claude_context.xml
+*.onnx
+*.onnx.json
+
+# Archive/rejected renders
+reels/_archive/
+
+# Skill outputs
+skills/caption-skill/out/
+skills/huashu-art-motion/scripts/engine/demos/long_scroll/frames/

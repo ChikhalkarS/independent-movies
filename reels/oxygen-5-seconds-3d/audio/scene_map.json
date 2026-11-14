@@ -1,0 +1,58 @@
+[
+  {
+    "scene": 1,
+    "text": "What if Earth lost oxygen for just five seconds?",
+    "start": 0.0,
+    "end": 3.8,
+    "duration": 3.8,
+    "file": "scene_01.wav"
+  },
+  {
+    "scene": 2,
+    "text": "Holding your breath would not save you.",
+    "start": 3.8,
+    "end": 6.6,
+    "duration": 2.8,
+    "file": "scene_02.wav"
+  },
+  {
+    "scene": 3,
+    "text": "The daytime sky would instantly turn black.",
+    "start": 6.6,
+    "end": 9.925,
+    "duration": 3.325,
+    "file": "scene_03.wav"
+  },
+  {
+    "scene": 4,
+    "text": "No oxygen means nothing to scatter sunlight blue.",
+    "start": 9.925,
+    "end": 13.95,
+    "duration": 4.025,
+    "file": "scene_04.wav"
+  },
+  {
+    "scene": 5,
+    "text": "Every beachgoer would get an instant sunburn.",
+    "start": 13.95,
+    "end": 17.575,
+    "duration": 3.625,
+    "file": "scene_05.wav"
+  },
+  {
+    "scene": 6,
+    "text": "Every concrete building would crumble to dust.",
+    "start": 17.575,
+    "end": 21.1,
+    "duration": 3.525,
+    "file": "scene_06.wav"
+  },
+  {
+    "scene": 7,
+    "text": "Oxygen returns. The counter resets. The loop begins again.",
+    "start": 21.1,
+    "end": 26.25,
+    "duration": 5.15,
+    "file": "scene_07.wav"
+  }
+]

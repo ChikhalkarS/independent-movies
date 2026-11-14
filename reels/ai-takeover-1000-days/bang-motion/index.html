@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<!-- Bang Motion test reel: "What if AI takes over" — 10 sec test -->
+<!-- Paper-cut palette: sky #bcdbe6, sand #efe3c9, cloud #fbfbf8, gold #e9b949, red #d4553d, teal #3c8a8a, deep teal #1f5a63 -->
+<head>
+<meta charset="utf-8">
+<title>AI Takeover — Day 1 to 50 (bang-motion test)</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--sky:#bcdbe6;--sand:#efe3c9;--cloud:#fbfbf8;--gold:#e9b949;--red:#d4553d;--teal:#3c8a8a;--deep-teal:#1f5a63;--ink:#1f5a63}
+html,body{margin:0;height:100%;background:#0a0a0a;overflow:hidden}
+#stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;overflow:hidden;background:var(--sky);font-family:"Bricolage Grotesque",system-ui,sans-serif;color:var(--ink)}
+#world{position:absolute;inset:0;transform-origin:0 0;will-change:transform}
+#filters{position:fixed;width:0;height:0;opacity:0;pointer-events:none}
+.t{position:absolute;opacity:0}
+.w{display:inline-block;white-space:nowrap;margin:0 .1em;opacity:0;will-change:transform,opacity}
+.paper{position:absolute;inset:-1400px;background:var(--sky)}
+.grain{position:absolute;inset:-1400px;opacity:.25;mix-blend-mode:multiply;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .28 0 0 0 0 .2 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")}
+.stain{position:absolute;inset:-1400px;pointer-events:none;background:radial-gradient(60% 40% at 20% 15%,rgba(212,85,61,.08),transparent 70%),radial-gradient(50% 35% at 85% 80%,rgba(31,90,99,.08),transparent 70%)}
+.cut{position:absolute;opacity:0;will-change:transform,filter;filter:drop-shadow(0 30px 40px rgba(31,90,99,.30))}
+.cut img{display:block;width:100%}
+.ph{display:grid;place-items:center;width:100%;height:100%;border-radius:28px;background:#d9c9a8;color:#6b5f52;font-family:"Caveat",cursive;font-size:44px;text-align:center}
+.line{position:absolute;left:120px;right:120px;font-weight:800;font-size:92px;line-height:1.02;letter-spacing:-.02em;color:var(--ink);opacity:0}
+.hl{position:relative;display:inline-block;padding:.02em .18em;border-radius:.18em;color:#fff}
+.hl i{position:absolute;inset:0;border-radius:inherit;transform:scaleX(0);transform-origin:0 50%;z-index:-1;background:var(--gold)}
+.hl.t i{background:var(--teal)} .hl.r i{background:var(--red)}
+.name{position:absolute;font-weight:700;font-size:34px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);opacity:0;white-space:nowrap}
+.hand{position:absolute;font-family:"Caveat",cursive;font-weight:700;font-size:56px;color:var(--teal);opacity:0;white-space:nowrap}
+.ghost{position:absolute;font-weight:800;font-size:380px;line-height:.85;letter-spacing:-.04em;color:rgba(31,90,99,.07);white-space:nowrap;opacity:0}
+.anno *{fill:none;stroke:var(--red);stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+.vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(70% 62% at 50% 50%,transparent 55%,rgba(31,90,99,.18) 100%)}
+#dbg{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);display:none;gap:12px;align-items:center;padding:10px 16px;border-radius:14px;background:rgba(14,16,22,.9);color:#cfd5e3;font:13px system-ui;z-index:50}
+#dbg input{width:360px}#dbg span{font-variant-numeric:tabular-nums;min-width:6ch}
+.daycounter{position:absolute;left:120px;top:80px;font-weight:800;font-size:72px;color:var(--deep-teal);opacity:0}
+</style>
+</head>
+<body>
+<svg id="filters"><defs></defs></svg>
+<div id="stage">
+  <div id="world">
+    <div class="paper"></div><div class="grain"></div><div class="stain"></div>
+    <!-- DAY COUNTER throughline -->
+    <div class="daycounter" id="daycounter">DAY 1</div>
+
+    <!-- SCENE 1: Door with gift box (close-up) -->
+    <div class="cut" id="door" style="left:680px;top:280px;width:560px;height:620px">
+      <svg viewBox="0 0 560 620" width="560" height="620">
+        <!-- Door frame -->
+        <rect x="40" y="60" width="480" height="500" fill="#8b6342" stroke="#5a3b27" stroke-width="4"/>
+        <!-- Door panels -->
+        <rect x="80" y="100" width="400" height="200" fill="#b8860b" stroke="#8b6342" stroke-width="2"/>
+        <rect x="80" y="320" width="400" height="200" fill="#b8860b" stroke="#8b6342" stroke-width="2"/>
+        <!-- Gift box on floor -->
+        <g transform="translate(180 420)">
+          <rect x="0" y="0" width="200" height="150" fill="#efe3c9" stroke="#1f5a63" stroke-width="3"/>
+          <rect x="0" y="0" width="200" height="30" fill="#e9b949"/>
+          <rect x="90" y="0" width="20" height="150" fill="#e9b949"/>
+          <rect x="0" y="60" width="200" height="30" fill="#e9b949"/>
+        </g>
+        <!-- Door handle -->
+        <circle cx="420" cy="320" r="15" fill="#e9b949"/>
+      </svg>
+    </div>
+
+    <!-- SCENE 2: Robot wave (to the right of world) -->
+    <div class="cut" id="robot_wave" style="left:2600px;top:320px;width:520px;height:520px">
+      <svg viewBox="0 0 520 520" width="520" height="520">
+        <!-- Robot body (paper cutout style) -->
+        <g filter="url(#sh)">
+          <rect x="130" y="220" width="260" height="240" fill="#3c8a8a"/>
+          <polygon points="260,180 180,220 340,220" fill="#3c8a8a"/>
+          <circle cx="260" cy="140" r="50" fill="#3c8a8a"/>
+          <!-- Antenna -->
+          <line x1="260" y1="90" x2="260" y2="60" stroke="#e9b949" stroke-width="4"/>
+          <circle cx="260" cy="55" r="8" fill="#e9b949"/>
+          <!-- Eyes -->
+          <circle cx="230" cy="130" r="8" fill="#1f5a63"/>
+          <circle cx="290" cy="130" r="8" fill="#1f5a63"/>
+          <!-- Arms - one waving -->
+          <rect x="80" y="240" width="60" height="180" fill="#3c8a8a" transform="rotate(-30 110 240)"/>
+          <rect x="380" y="240" width="60" height="180" fill="#3c8a8a" transform="rotate(30 410 240)" id="wave_arm"/>
+          <!-- Legs -->
+          <rect x="160" y="460" width="60" height="40" fill="#3c8a8a"/>
+          <rect x="300" y="460" width="60" height="40" fill="#3c8a8a"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- SCENE 3: Person at desk with calendar (far right) -->
+    <div class="cut" id="desk_scene" style="left:5200px;top:280px;width:700px;height:620px">
+      <svg viewBox="0 0 700 620" width="700" height="620">
+        <!-- Desk -->
+        <rect x="80" y="420" width="540" height="160" fill="#8b6342" stroke="#5a3b27" stroke-width="4"/>
+        <rect x="80" y="400" width="540" height="20" fill="#b8860b"/>
+        <!-- Paper person sitting -->
+        <g transform="translate(200 280)" filter="url(#sh)">
+          <circle cx="150" cy="0" r="35" fill="#efe3c9"/>
+          <rect x="115" y="35" width="70" height="100" fill="#efe3c9"/>
+          <rect x="80" y="50" width="40" height="60" fill="#efe3c9" transform="rotate(-20 100 50)"/>
+          <rect x="180" y="50" width="40" height="60" fill="#efe3c9" transform="rotate(20 200 50)"/>
+          <rect x="125" y="135" width="20" height="40" fill="#efe3c9"/>
+          <rect x="155" y="135" width="20" height="40" fill="#efe3c9"/>
+        </g>
+        <!-- Phone in hand -->
+        <rect x="280" y="380" width="50" height="80" fill="#1f5a63" stroke="#bcdbe6" stroke-width="2"/>
+        <rect x="285" y="385" width="40" height="70" fill="#bcdbe6"/>
+        <!-- Calendar pages flipping -->
+        <g transform="translate(500 120)">
+          <rect x="0" y="0" width="120" height="160" fill="#efe3c9" stroke="#1f5a63" stroke-width="2"/>
+          <line x1="60" y1="0" x2="60" y2="160" stroke="#1f5a63" stroke-width="1" stroke-dasharray="10,5"/>
+          <text x="60" y="80" text-anchor="middle" font-family="Caveat" font-size="48" fill="#1f5a63">DAY 50</text>
+        </g>
+        <!-- Day label on wall -->
+        <text x="550" y="80" text-anchor="end" font-family="Bricolage Grotesque" font-size="56" font-weight="800" fill="#1f5a63">DAY 50</text>
+      </svg>
+    </div>
+
+    <!-- Day counter labels for scenes 2 and 3 (positioned in world coords) -->
+    <div class="daycounter" id="daycounter2" style="left:3000px;top:120px">DAY 10</div>
+    <div class="daycounter" id="daycounter3" style="left:5600px;top:120px">DAY 50</div>
+
+    <!-- Text lines (paper strip style) -->
+    <div class="line t" id="line1" style="left:120px;top:860px">
+      A gift arrives. It opens itself.
+    </div>
+    <div class="line t" id="line2" style="left:2540px;top:860px;right:auto;width:1500px">
+      It writes your emails. You say thank you.
+    </div>
+    <div class="line t" id="line3" style="left:5140px;top:860px;right:auto;width:1500px">
+      It plans your day. You stop planning.
+    </div>
+
+    <!-- Annotation ring for day counter highlight -->
+    <svg class="anno" id="ring1" style="position:absolute;left:80px;top:40px;width:200px;height:200px;overflow:visible" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="80"/>
+    </svg>
+  </div>
+  <div class="vig"></div>
+  <div id="dbg"><button id="dPlay">Pause</button><input id="dScrub" type="range" min="0" max="1000" value="0"><span id="dClock">0.00s</span></div>
+</div>
+<audio id="vo" src="" preload="auto"></audio>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const W=1920,H=1080,DUR=10;
+function fit(){const s=Math.min(innerWidth/W,innerHeight/H);$('#stage').style.transform=`translate(-50%,-50%) scale(${s})`;}
+addEventListener('resize',fit);fit();
+
+/* motion blur */
+const defs=$('#filters defs');let fc=0;
+function makeBlur(){const id='mb'+(fc++),NS='http://www.w3.org/2000/svg';const f=document.createElementNS(NS,'filter');f.id=id;
+  f.setAttribute('x','-70%');f.setAttribute('y','-70%');f.setAttribute('width','240%');f.setAttribute('height','240%');
+  const g=document.createElementNS(NS,'feGaussianBlur');g.setAttribute('stdDeviation','0 0');f.appendChild(g);defs.appendChild(f);return {url:`url(#${id})`,node:g};}
+function blurTween(tl,targets,at,from,to,dur,{ease='power3.out',ax=1,ay=.08}={}){const b=makeBlur(),o={v:from};tl.set(targets,{filter:b.url},at);
+  tl.to(o,{v:to,duration:dur,ease,onUpdate(){b.node.setAttribute('stdDeviation',`${(o.v*ax).toFixed(2)} ${(o.v*ay).toFixed(2)}`);}},at);tl.set(targets,{filter:'none'},at+dur);}
+const VERT={ax:.1,ay:1},HORZ={ax:1,ay:.1};
+
+/* split words */
+$$('.line').forEach(el=>{const out=[];el.childNodes.forEach(n=>{if(n.nodeType===3){n.textContent.split(/\s+/).filter(Boolean).forEach(w=>{const s=document.createElement('span');s.className='w';s.textContent=w;out.push(s);});}
+  else{const s=document.createElement('span');s.className='w';s.appendChild(n.cloneNode(true));out.push(s);}});el.textContent='';out.forEach(s=>el.appendChild(s));});
+
+const tl=gsap.timeline({paused:true});const rig=$('#world');
+const words=el=>$$('.w',el);
+const say=(sel,at,{dur=.55,st=.08,mode='up'}={})=>{const el=$(sel),ws=words(el);tl.set(el,{opacity:1},at);
+  if(mode==='scale')tl.fromTo(ws,{opacity:0,scale:.7,rotate:-3},{opacity:1,scale:1,rotate:0,duration:dur,ease:'back.out(1.6)',stagger:st,immediateRender:false},at);
+  else tl.fromTo(ws,{opacity:0,yPercent:60,scaleY:1.25},{opacity:1,yPercent:0,scaleY:1,duration:dur,ease:'power4.out',stagger:st,immediateRender:false},at);
+  blurTween(tl,el,at,22,0,dur+st*ws.length,VERT);
+  $$('.hl i',el).forEach((h,i)=>tl.fromTo(h,{scaleX:0},{scaleX:1,duration:.4,ease:'power3.out',immediateRender:false},at+st*ws.length+.2+i*.2));};
+const unsay=(sel,at,{dur=.3}={})=>{const el=$(sel),ws=words(el);tl.to(ws,{opacity:0,yPercent:-50,duration:dur,ease:'power2.in',stagger:.02},at);
+  blurTween(tl,el,at,0,30,dur+.1,{ease:'power2.in',...VERT});tl.set(el,{opacity:0},at+dur+.15);};
+const fly=(sel,at,{from={x:0,y:500,rotate:10,scale:.9},dur=.9,ease='power4.out',float=true}={})=>{const el=$(sel);
+  tl.fromTo(el,{opacity:0,...from},{opacity:1,x:0,y:0,rotate:0,scale:1,duration:dur,ease,immediateRender:false},at);
+  blurTween(tl,el,at,34,0,dur*.7,Math.abs(from.x||0)>Math.abs(from.y||0)?HORZ:VERT);
+  if(float)tl.to(el,{y:-25,rotate:1.5,scale:1.03,duration:1.5+((at*7)%1)*.3,ease:'sine.inOut',yoyo:true,repeat:-1},at+dur);};
+const draw=(sel,at,dur=.7)=>{const p=$(sel);tl.set(p,{opacity:0},0);tl.set(p,{opacity:1},at);const o={v:0};
+  tl.to(o,{v:1,duration:dur,ease:'power2.inOut',onUpdate(){p.style.clipPath=`inset(-300px ${(1-o.v)*100}% -300px -300px)`;}},at);};
+const label=(sel,at)=>tl.fromTo($(sel),{opacity:0,y:14},{opacity:1,y:0,duration:.4,ease:'power3.out',immediateRender:false},at);
+
+/* camera */
+const C={x:960,y:540,z:1};
+function applyCam(){rig.style.transform=`translate(${960-C.x*C.z}px,${540-C.y*C.z}px) scale(${C.z})`;}
+const look=(at,x,y,z,dur=1.6,ease='sine.inOut')=>tl.to(C,{x,y,z,duration:dur,ease,onUpdate:applyCam},at);
+const home=(at,x=960,y=540,dur=1.2)=>look(at,x,y,1,dur,'power2.inOut');
+const into=(cutAt,x,y,z)=>tl.to(C,{x,y,z,duration:.9,ease:'power2.in',onUpdate:applyCam},cutAt-.9);
+const settle=(cutAt,x,y,z)=>tl.to(C,{x,y,z:z*.94,duration:1.1,ease:'power3.out',onUpdate:applyCam},cutAt);
+const breath=(a,b,z)=>tl.to(C,{z,duration:b-a,ease:'sine.inOut',onUpdate:applyCam},a);
+
+/* ===== 10-SECOND CHOREOGRAPHY ===== */
+
+// Scene 1: Door close-up (0-3.3s)
+tl.set(C,{x:960,y:420,z:1.8,onUpdate:applyCam},0);       // start close on door
+tl.fromTo('#daycounter',{opacity:0,y:40},{opacity:1,y:0,duration:1,ease:'power2.out'},.2);
+fly('#door',.3,{from:{x:0,y:300,rotate:5,scale:.8}});
+draw('#ring1',1.5,.6);
+label('#daycounter',1.8);
+say('#line1',2.2);
+breath(2.5,3.3,1.03);
+unsay('#line1',3.0);tl.to('#ring1',{opacity:0,duration:.2},3.0);tl.to('#daycounter',{opacity:0,duration:.2},3.0);
+
+// PUSH-THROUGH to Scene 2 (robot wave)
+into(3.3,2600,420,1.8);settle(3.3,2760,400,1.7);
+fly('#robot_wave',3.4,{from:{x:0,y:400,rotate:-8,scale:.9}});
+tl.fromTo('#daycounter2',{opacity:0,y:40},{opacity:1,y:0,duration:1,ease:'power2.out'},3.5);
+say('#line2',4.0);
+breath(4.0,6.5,1.03);
+unsay('#line2',6.2);tl.to('#daycounter2',{opacity:0,duration:.2},6.2);
+
+// PUSH-THROUGH to Scene 3 (desk)
+into(6.5,5200,420,1.8);settle(6.5,5360,400,1.7);
+fly('#desk_scene',6.6,{from:{x:0,y:400,rotate:5,scale:.9}});
+tl.fromTo('#daycounter3',{opacity:0,y:40},{opacity:1,y:0,duration:1,ease:'power2.out'},6.7);
+say('#line3',7.2);
+breath(7.2,DUR,1.03);
+
+tl.to({},{duration:.01},DUR);
+
+/* controls */
+const q=new URLSearchParams(location.search),vo=$('#vo'),hasVO=!!vo.getAttribute('src');let audioOn=false;
+function start(){tl.play(0);if(hasVO){vo.currentTime=0;vo.play().then(()=>audioOn=true).catch(()=>{});}}
+tl.eventCallback('onComplete',()=>start());
+gsap.ticker.add(()=>{if(!audioOn||tl.paused())return;if(Math.abs(vo.currentTime-tl.time())>.12)vo.currentTime=tl.time();});
+window.OPENER={W,H,DURATION:DUR,tl,ready:false,seek(t){tl.pause(t,false);applyCam();if(gsap.ticker.tick)gsap.ticker.tick();},play:start};
+addEventListener('keydown',e=>{if(/^[rR]$/.test(e.key))start();if(e.code==='Space'){e.preventDefault();tl.paused()?tl.play():tl.pause();}});
+if(q.has('debug')){const dbg=$('#dbg');dbg.style.display='flex';const sc=$('#dScrub'),ck=$('#dClock');let drag=false;
+  gsap.ticker.add(()=>{if(!drag)sc.value=String(tl.time()/DUR*1000);ck.textContent=tl.time().toFixed(2)+'s';$('#dPlay').textContent=tl.paused()?'Play':'Pause';});
+  sc.addEventListener('pointerdown',()=>{drag=true;tl.pause();});addEventListener('pointerup',()=>drag=false);
+  sc.addEventListener('input',()=>{tl.pause();tl.time(sc.value/1000*DUR);});$('#dPlay').onclick=()=>tl.paused()?tl.play():tl.pause();}
+document.fonts.ready.then(()=>{applyCam();window.OPENER.ready=true;if(q.has('clean'))return;
+  if(!hasVO){start();return;}
+  vo.play().then(()=>{audioOn=true;vo.currentTime=0;tl.play(0);}).catch(()=>{const go=()=>{removeEventListener('pointerdown',go);removeEventListener('keydown',go);start();};addEventListener('pointerdown',go);addEventListener('keydown',go);});});
+</script>
+</body>
+</html>

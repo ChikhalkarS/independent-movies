@@ -1,0 +1,16 @@
+{
+  "grammar": "y2_vox",
+  "duration": 10,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "theme": "paper",
+  "cues": [
+    { "at": 0.0, "kind": "title", "text": "DAY 1", "sub": "A gift arrives." },
+    { "at": 0.3, "kind": "highlight", "data": { "rect": [0.1, 0.6, 0.8, 0.3] } },
+    { "at": 3.3, "kind": "title", "text": "DAY 10", "sub": "It writes your emails." },
+    { "at": 3.6, "kind": "highlight", "data": { "rect": [0.1, 0.6, 0.8, 0.3] } },
+    { "at": 6.6, "kind": "title", "text": "DAY 50", "sub": "It plans your day." },
+    { "at": 6.9, "kind": "highlight", "data": { "rect": [0.1, 0.6, 0.8, 0.3] } }
+  ]
+}
